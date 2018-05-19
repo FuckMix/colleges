@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    //    private Map<String, String> request;
-//    private Map<String, Object> session;
     private UserMapper myUserMapper;
 
     @Autowired
@@ -25,38 +23,10 @@ public class UserService {
         } else {
             return false;
         }
-//        ActionContext ctx = ActionContext.getContext();
-//        session = ctx.getSession();
-//        request = (Map<String, String>) ctx.get("request");
-//        String account = loginUser.getAccount();
-//        String password = loginUser.getPassword();
-//        UserDao dao = new UserDao();
-//        User user;
-//        user = dao.findByAP(account, password);
-//        if (user == null)
-//            return false;
-//        else {
-//            session.put("user", account);
-//            request.put("tip", "登录成功！");
-//            session.put("loginUser", user);
-//            return true;
-//        }
     }
 
     public boolean register(User user) {
         return myUserMapper.insert(user) != 0;
-        //        ActionContext ctx = ActionContext.getContext();
-//        session = ctx.getSession();
-//        request = (Map<String, String>) ctx.get("request");
-//        UserDao dao = new UserDao();
-//        try {
-//            dao.insert(loginUser);
-//            session.remove("user");
-//            request.put("tip", "注册成功");
-//            return true;
-//        } catch (Exception e) {
-//            return false;
-//        }
     }
 
     public User findUserById(int userId) {

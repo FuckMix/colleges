@@ -10,7 +10,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  */
 @Configuration
 @ConfigurationProperties(prefix = "spring.datasource")
-public class MybatisConfig {
+public class DataConfig {
     private String url;
     private String driverClassName;
     private String username;

@@ -12,6 +12,7 @@ import java.util.List;
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
+    @Insert("insert into users values")
     int insert(User record);
 
     int insertSelective(User record);
