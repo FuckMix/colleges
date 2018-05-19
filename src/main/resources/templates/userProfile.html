@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{/resources/static/style.css}"/>
+</head>
+<body>
+<div id="content" align="center">
+    <h1>Your Profile</h1>
+    <!--/*@thymesVar id="user" type="cn.edu.zjut.colleges.entity.User"*/-->
+    <span th:text="${user.userId}">id</span><br>
+    <span th:text="${user.account}">account</span><br/>
+    <span th:text="${user.password}">password</span>
+
+</div>
+</body>
+</html>

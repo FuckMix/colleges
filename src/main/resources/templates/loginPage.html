@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/resources/static/style.css}"/>
+</head>
+<body>
+<h1 align="center">登录</h1>
+<div align="center" id="content">
+    <!--/*@thymesVar id="user" type="cn.edu.zjut.colleges.entity.User"*/-->
+    <form th:action="@{/user/login}" method="POST" th:object="${user}">
+        <div class="errors" th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}"
+                    th:text="${err}">Input is incorrect
+                </li>
+            </ul>
+        </div>
+        <label>Account:
+            <input type="text" th:field="*{account}"
+                   th:class="${#fields.hasErrors('account')}? 'error'"><br/>
+        </label>
+        <label>Password:
+            <input type="password" th:field="*{password}"
+                   th:class="${#fields.hasErrors('password')}? 'error'"/><br/>
+        </label>
+        <input type="submit" value="登录"/>
+    </form>
+</div>
+</body>
+</html>
