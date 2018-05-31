@@ -1,6 +1,6 @@
 package cn.edu.zjut.colleges.mapper;
 
-import cn.edu.zjut.colleges.entity.District;
+import cn.edu.zjut.colleges.dto.District;
 
 import java.util.List;
 

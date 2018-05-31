@@ -11,8 +11,8 @@
 <div id="content" align="center">
     <h1>用户注册</h1>
 
-    <!--/*@thymesVar id="user" type="cn.edu.zjut.colleges.entity.User"*/-->
-    <form method="POST" th:object="${user}">
+    <!--/*@thymesVar id="user" type="cn.edu.zjut.colleges.dto.User"*/-->
+    <form method="POST" th:action="@{/user/register}" th:object="${user}">
         <div class="errors" th:if="${#fields.hasErrors('*')}">
             <ul>
                 <li th:each="err : ${#fields.errors('*')}"
@@ -25,6 +25,10 @@
                    th:class="${#fields.hasErrors('account')}? 'error'"/><br/>
         </label>
 
+        <label th:class="${#fields.hasErrors('password')}? 'error'">
+            Password:<input type="password" th:field="*{password}"
+                            th:class="${#fields.hasErrors('password')}? 'error'"/><br/>
+        </label>
 
         <label th:class="${#fields.hasErrors('email')}? 'error'">
             Email:<input type="text" th:field="*{email}"
@@ -37,10 +41,17 @@
             <input th:type="radio" name="sex" th:field="*{sex}" th:value="false">女<br>
         </label>
 
-        <label th:class="${#fields.hasErrors('password')}? 'error'">
-            Password:<input type="text" th:field="*{password}"
-                   th:class="${#fields.hasErrors('password')}? 'error'"/><br/>
+        <label th:class="${#fields.hasErrors('birthday')}? 'error'">
+            Birthday:<input type="date" th:field="*{birthday}"
+                            th:class="${#fields.hasErrors('birthday')}? 'error'"/><br/>
         </label>
+
+        <label th:class="${#fields.hasErrors('nativePlace')}? 'error'">
+            NativePlace:<input type="text" th:field="*{nativePlace}"
+                            th:class="${#fields.hasErrors('nativePlace')}? 'error'"/><br/>
+        </label>
+
+
         <input type="submit" value="Register" />
 
     </form>

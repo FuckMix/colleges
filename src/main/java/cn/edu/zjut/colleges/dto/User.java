@@ -1,4 +1,4 @@
-package cn.edu.zjut.colleges.entity;
+package cn.edu.zjut.colleges.dto;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -6,7 +6,6 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 public class User {
     private Integer userId;
@@ -24,7 +23,7 @@ public class User {
 
     private Boolean sex;
 
-    private Date birthday;
+    private String birthday;
 
     private String nativePlace;
 
@@ -68,11 +67,11 @@ public class User {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

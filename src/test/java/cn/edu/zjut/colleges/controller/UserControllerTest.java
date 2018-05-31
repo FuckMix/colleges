@@ -1,14 +1,12 @@
 package cn.edu.zjut.colleges.controller;
 
-import cn.edu.zjut.colleges.entity.User;
-import cn.edu.zjut.colleges.mapper.UserMapper;
-import cn.edu.zjut.colleges.service.UserService;
+import cn.edu.zjut.colleges.dto.User;
+import cn.edu.zjut.colleges.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Date;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,8 +19,8 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 public class UserControllerTest {
     @Test
     public void showLoginPage() throws Exception {
-        UserService mockService = mock(UserService.class);
-        UserController controller = new UserController(mockService);
+        UserServiceImpl mockService = mock(UserServiceImpl.class);
+        UserController controller = new UserController();
         MockMvc mockMvc = standaloneSetup(controller).build();
         mockMvc.perform(get("/user/login"))
                 .andExpect(view().name("loginPage"));
@@ -30,7 +28,6 @@ public class UserControllerTest {
 
     @Test
     public void processLogin() throws Exception {
-
     }
 
     @Test
@@ -39,11 +36,11 @@ public class UserControllerTest {
 
     @Test
     public void processRegister() throws Exception {
-        UserService mockService = mock(UserService.class);
+        UserServiceImpl mockService = mock(UserServiceImpl.class);
         User unsaved = new User();
         unsaved.setAccount("yzt126");
         unsaved.setPassword("yzt126");
-        unsaved.setBirthday(new Date());
+        unsaved.setBirthday("2018-05-31");
         unsaved.setNativePlace("Here");
         unsaved.setEmail("wisetim@163.com");
 
@@ -51,7 +48,7 @@ public class UserControllerTest {
         saved.setUserId(4);
         saved.setAccount("yzt126");
         saved.setPassword("yzt126");
-        saved.setBirthday(new Date());
+        saved.setBirthday("2018-05-31");
         saved.setNativePlace("Here");
         saved.setEmail("wisetim@163.com");
         when(mockService.register(unsaved)).thenReturn(true);

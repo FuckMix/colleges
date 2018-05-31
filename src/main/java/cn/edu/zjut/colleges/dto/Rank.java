@@ -1,4 +1,4 @@
-package cn.edu.zjut.colleges.entity;
+package cn.edu.zjut.colleges.dto;
 
 public class Rank extends RankKey {
     private Integer rank;

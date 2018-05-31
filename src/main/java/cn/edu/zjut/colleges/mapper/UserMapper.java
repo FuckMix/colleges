@@ -1,6 +1,6 @@
 package cn.edu.zjut.colleges.mapper;
 
-import cn.edu.zjut.colleges.entity.User;
+import cn.edu.zjut.colleges.dto.User;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.stereotype.Component;
@@ -12,15 +12,18 @@ import java.util.List;
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
-    @Insert("insert into users values")
+    @Insert("insert into users(account,password,email,sex,birthday,native_place) " +
+            "values(#{account},#{password},#{email},#{sex},#{birthday},#{nativePlace})")
+    @Options(keyProperty = "userId", keyColumn = "user_id", useGeneratedKeys = true)
     int insert(User record);
 
-    int insertSelective(User record);
+//    int insertSelective(User record);
 
     @Results(id = "userResultMap",
             value = {
                     @Result(column = "user_id", property = "userId", id = true, jdbcType = JdbcType.INTEGER),
                     @Result(column = "account", property = "account", jdbcType = JdbcType.VARCHAR),
+                    @Result(column = "password", property = "password", jdbcType = JdbcType.VARCHAR),
                     @Result(column = "email", property = "email", jdbcType = JdbcType.VARCHAR),
                     @Result(column = "sex", property = "sex", jdbcType = JdbcType.TINYINT),
                     @Result(column = "birthday", property = "birthday", jdbcType = JdbcType.DATE),
@@ -30,9 +33,9 @@ public interface UserMapper {
     @Select("select * from users where user_id = #{userId}")
     User selectByPrimaryKey(@Param("userId") Integer userId);
 
+
     int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(User record);
 
     @ResultMap("userResultMap")
     @Select("select * from users where account=#{account} and password=#{password}")

@@ -9,8 +9,8 @@
 <body>
 <h1 align="center">登录</h1>
 <div align="center" id="content">
-    <!--/*@thymesVar id="user" type="cn.edu.zjut.colleges.entity.User"*/-->
-    <form th:action="@{/user/login}" method="POST" th:object="${user}">
+    <!--/*@thymesVar id="user" type="cn.edu.zjut.colleges.dto.User"*/-->
+    <form action="#" th:action="@{/user/login}" method="POST" th:object="${user}">
         <div class="errors" th:if="${#fields.hasErrors('*')}">
             <ul>
                 <li th:each="err : ${#fields.errors('*')}"

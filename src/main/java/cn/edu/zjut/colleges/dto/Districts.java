@@ -1,8 +1,6 @@
-package cn.edu.zjut.colleges.entity;
+package cn.edu.zjut.colleges.dto;
 
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

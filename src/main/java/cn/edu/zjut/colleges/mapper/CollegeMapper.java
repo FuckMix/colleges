@@ -1,6 +1,6 @@
 package cn.edu.zjut.colleges.mapper;
 
-import cn.edu.zjut.colleges.entity.College;
+import cn.edu.zjut.colleges.dto.College;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;

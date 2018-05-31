@@ -1,4 +1,4 @@
-package cn.edu.zjut.colleges.entity;
+package cn.edu.zjut.colleges.dto;
 
 public class College {
     public static final int PROJECT_211 = 1;
